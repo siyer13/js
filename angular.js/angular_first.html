@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html data-ng-app = "">
+<head>
+<title>trying angular</title>
+</head>
+<body data-ng-init="persons=['Jhon','Jana','Jane']">
+
+  <input type="text" data-ng-model="name" /> {{ name }}
+  <br />
+  <ul>
+    <li data-ng-repeat="person in persons"> {{person}} </li>
+  </ul>
+<script src="angular.min.js"> </script>
+</body>
+</html>
