@@ -1,0 +1,36 @@
+package com.workwave.jsonparser.JsonParser;
+
+/***
+ * 
+ * @author Sridhar
+ * Given a string, find sum up all the integers’ inside. For example:
+ *	"1abcd45" return 1+45 =46;
+ *	"233bc-23" return 233 + 23 = 256;
+ *	if allow negative number,
+ * "233bc-23" return 233 - 23 = 210;
+ *
+ */
+
+public class SumInteger {
+
+	public static void main(String[] args) {
+		System.out.println(new SumInteger().sumInt("1abcd45"));
+	}
+	
+	public int sumInt(String string) {
+		String temp = "";
+		int sum = 0;
+		for(int i = 0; i < string.length()-1; i++) {
+			Character c = string.charAt(i);
+			
+			if(Character.isDigit(c)) {
+				temp += c;
+			}
+			else {
+				sum = sum + Integer.parseInt(temp);
+				temp = "";
+			}
+		}
+		return sum;
+	}
+}

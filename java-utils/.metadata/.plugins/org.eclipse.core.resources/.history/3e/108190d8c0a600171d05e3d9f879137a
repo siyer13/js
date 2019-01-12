@@ -1,0 +1,11 @@
+package training.collections;
+
+public class Lists {
+
+	public static void main(String[] args) {
+		
+		List fruit_list = new ArrayList();
+
+	}
+
+}

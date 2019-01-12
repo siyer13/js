@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.workwave.jsonparser.JsonParser.Integer&apos; to &apos;MyInteger&apos;&#x0D;&#x0A;- Original project: &apos;JsonParser&apos;&#x0D;&#x0A;- Original element: &apos;com.workwave.jsonparser.JsonParser.Integer&apos;&#x0D;&#x0A;- Renamed element: &apos;com.workwave.jsonparser.JsonParser.MyInteger&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Integer&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.workwave.jsonparser.JsonParser{Integer.java[Integer" matchStrategy="1" name="MyInteger" qualified="false" references="true" similarDeclarations="false" stamp="1500663568403" textual="false" version="1.0"/>
+</session>

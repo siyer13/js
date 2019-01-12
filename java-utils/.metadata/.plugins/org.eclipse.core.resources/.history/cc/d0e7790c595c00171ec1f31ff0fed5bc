@@ -1,0 +1,5 @@
+package com.workwave.jsonparser.JsonParser;
+
+public class SumInteger {
+
+}

@@ -1,0 +1,28 @@
+package training.collections;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Maps {
+
+	public static void main(String[] args) {
+		// Maps work as key value pair
+		
+		Map<String,String> fruit_map = new HashMap<String, String>();
+		fruit_map.put("A", "Apple");
+		fruit_map.put("B", "Banana");
+		fruit_map.put("C", "Cherry");
+		fruit_map.put("M", "Mango");	
+		System.out.println(fruit_map.get("M"));
+		
+		Map<String, List<String>> shoppingCart = new HashMap<String, String>();
+		// unique id is ABC
+		shoppingCart.put("ABC", "APPLE");
+		shoppingCart.put("ABC", "Cherry");
+		
+		shoppingCart.put("ABC", "Mango");
+		
+		System.out.println(shoppingCart.get("ABC"));
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ArrayStack.java&apos; to &apos;CodingInterview/src/training.interview.stack&apos;&#x0D;&#x0A;- Original project: &apos;CodingInterview&apos;&#x0D;&#x0A;- Destination element: &apos;CodingInterview/src/training.interview.stack&apos;&#x0D;&#x0A;- Original element: &apos;training.interview.stack.ArrayStack.java&apos;" description="Copy compilation unit" destination="/src&lt;training.interview.stack" element1="/src&lt;training.interview.stack{ArrayStack.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1494387903847" units="1" version="1.0"/>
+</session>

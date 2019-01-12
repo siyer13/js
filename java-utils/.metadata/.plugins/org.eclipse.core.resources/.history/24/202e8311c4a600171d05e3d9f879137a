@@ -1,0 +1,20 @@
+package training.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Sets {
+
+	public static void main(String[] args) {
+		Set<String> fruit_set = new TreeSet<String>();
+		// set will not allow any duplicates 
+		fruit_set.add("apple");
+		fruit_set.add("mango");
+		fruit_set.add("apple");
+		fruit_set.add("banana");
+		System.out.println(fruit_set);
+
+	}
+
+}

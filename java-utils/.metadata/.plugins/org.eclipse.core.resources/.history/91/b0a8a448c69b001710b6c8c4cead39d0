@@ -1,0 +1,17 @@
+package training.inheritance;
+
+public class FatherSonTest {
+
+	public static void main(String[] args) {
+		
+		Father father = new Father();
+		father.eat();
+	
+		Son son = new Son();
+		son.eat();
+		son.education();
+		
+
+	}
+
+}
