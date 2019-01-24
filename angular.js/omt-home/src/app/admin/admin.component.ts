@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+   clickMessage = '';
+   keyValue = '';
+
   constructor() { }
 
   ngOnInit() {
   }
+public onClickMe() {
+  this.clickMessage = 'Hey Sri, how are you ?';
+}
 
+values = '';
+
+public onKey(event: KeyboardEvent) { // with type info
+    this.values += (<HTMLInputElement>event.target).value + ' | ';
+  }
 }

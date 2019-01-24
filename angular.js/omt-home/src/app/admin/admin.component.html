@@ -1,3 +1,8 @@
 <p>
   admin works!
+  <button (click)="onClickMe()">Click me!</button>
+  {{clickMessage}}
 </p>
+
+<input (keyup)="onKey($event)">
+ <p>{{values}}</p>
