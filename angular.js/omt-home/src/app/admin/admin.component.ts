@@ -31,12 +31,13 @@ export class AdminComponent implements OnInit {
   ];
 
   values = '';
-  
+  showHide: boolean;
   constructor() {
-    
+    this.showHide = false;
    }
 
   ngOnInit() {
+
     this.userRole = new UserRole('a160097',true, true);
     console.log(this.userRole);
   }
@@ -49,5 +50,10 @@ public onClickMe() {
 public onKey(event: KeyboardEvent) { // with type info
     this.values += (<HTMLInputElement>event.target).value + ' | ';
     console.log(this.userRole);
+  }
+
+  changeShowStatus(element) {
+    this.showHide = !this.showHide;
+    element.disabled = true; 
   }
 }

@@ -6,3 +6,17 @@
 
 <input (keyup)="onKey($event)">
  <p>{{values}}</p>
+
+ <ul>
+   <li *ngFor="let element of array">{{element.name}}, {{element.age}}</li>
+ </ul>
+<p>
+ <button  class="btn btn-primary" (click)="changeShowStatus($event.target)">News Feed Editor</button>
+</p>
+ <div  *ngIf="showHide">
+ <editor  [init]="{plugins: 'link'}"></editor>
+ <br>
+ <button  class="btn btn-danger btn-sm btn-space float-right" (click)="save()">Cancel</button>
+
+ <button  class="btn btn-success btn-sm btn-space float-right" (click)="save()">Submit</button>
+</div>
