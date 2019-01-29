@@ -1,13 +1,20 @@
-
 <div class="text-center">
 <h3>News Letter Editor</h3>
-
 <textarea ref-textarea [(ngModel)]="textValue" rows="12" cols="90"></textarea><br/><br/>
 <button  class="btn btn-primary btn-sm btn-space" (click)="logText(textarea.value)">Preview</button>
 <button  class="btn btn-danger btn-sm btn-space" (click)="textValue=''">Clear</button>
 <button  class="btn btn-success btn-sm btn-space" (click)="save()">Submit</button>
-
 <br/><br/><br/>
 <pre>{{preview}}</pre>
 
-</div>
+<table class="table table-bordered">
+        <tr class="success">
+               <td>
+<marquee direction="up" scrollamount="1" behavior="loop">
+        <li *ngFor="let message of messages">
+    {{message}}
+</li>
+</marquee>
+</td>
+</tr>
+</table>

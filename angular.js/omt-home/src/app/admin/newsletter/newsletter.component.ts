@@ -9,6 +9,14 @@ export class NewsletterComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  messages: string[] = [
+    'Hello, this is Sridhar',
+    'This is the second line',
+    'This is the third line',
+    'This is the fourth line',
+    'This is the fifth line'
+  ];
+
   ngOnInit() {
   }
 
