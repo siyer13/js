@@ -3,7 +3,11 @@
   <button (click)="onClickMe()">Click me!</button>
   {{clickMessage}}
 </p>
-
+<nav>
+  <li routerLinkActive="active">
+  <a routerLink="newsletter" target="_blank">News Letter</a>
+  </li>
+</nav>
 <input (keyup)="onKey($event)">
  <p>{{values}}</p>
 
@@ -20,3 +24,18 @@
 
  <button  class="btn btn-success btn-sm btn-space float-right" (click)="save()">Submit</button>
 </div>
+
+<div>
+  <textarea (keyup)="onKey($event)"></textarea>
+
+<p>The value of the textarea field is:</p>
+<h1>{{values}}</h1>
+</div>
+
+<h1>Text Area</h1>
+<textarea ref-textarea [(ngModel)]="textValue" rows="12" cols="30"></textarea><br/>
+<button (click)="logText(textarea.value)">Update Log</button>
+<button (click)="textValue=''">Clear</button>
+
+<h2>Log <button (click)="log=''">Clear</button></h2>
+<pre>{{log}}</pre>

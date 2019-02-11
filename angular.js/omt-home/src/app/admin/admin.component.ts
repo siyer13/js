@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRole } from '../user-role';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -10,7 +11,9 @@ import { UserRole } from '../user-role';
 export class AdminComponent implements OnInit {
 
   private userRole : UserRole;
-  
+  private myTextarea : String = '';
+  private textValue : String = '';
+
    clickMessage = '';
    array = [
     {
@@ -31,8 +34,10 @@ export class AdminComponent implements OnInit {
   ];
 
   values = '';
+ 
+
   showHide: boolean;
-  constructor() {
+  constructor(private http: HttpClient) {
     this.showHide = false;
    }
 
@@ -40,7 +45,16 @@ export class AdminComponent implements OnInit {
 
     this.userRole = new UserRole('a160097',true, true);
     console.log(this.userRole);
+    console.log('This should get printed');
+     this.http.get('http://localhost:1337/localhost:8080/news/getnews').subscribe(data =>  {
+       console.log(data);
+       console.log(data[0]);
+       console.log(data[0]['id']);
+       console.log(data[0]['description']);
+        this.textValue = data[0]['description'];
+    });
   }
+
 
 
 public onClickMe() {
@@ -48,12 +62,20 @@ public onClickMe() {
 }
 
 public onKey(event: KeyboardEvent) { // with type info
-    this.values += (<HTMLInputElement>event.target).value + ' | ';
+    this.values = (<HTMLInputElement>event.target).value ;
     console.log(this.userRole);
   }
 
   changeShowStatus(element) {
     this.showHide = !this.showHide;
     element.disabled = true; 
+  }
+
+  
+  log = '';
+
+  logText(value: string): void {
+    this.http.put('http://localhost:1337/localhost:8080/news/update?newsDescription='+value,value).subscribe();
+    this.log += value;
   }
 }
