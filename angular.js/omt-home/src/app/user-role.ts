@@ -8,6 +8,7 @@ export class UserRole {
     constructor(functionlname:String, admin : boolean, viewer: boolean) {
         this.functionlName = functionlname;
          this.userRoles = {
+             
              ADMIN: admin, VIEWER: viewer
          };
     }

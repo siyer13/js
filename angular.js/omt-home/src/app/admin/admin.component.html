@@ -8,32 +8,10 @@
   <a routerLink="newsletter" target="_blank">News Letter</a>
   </li>
 </nav>
-<input (keyup)="onKey($event)">
- <p>{{values}}</p>
 
- <ul>
-   <li *ngFor="let element of array">{{element.name}}, {{element.age}}</li>
- </ul>
-<p>
- <button  class="btn btn-primary" (click)="changeShowStatus($event.target)">News Feed Editor</button>
-</p>
- <div  *ngIf="showHide">
- <editor  [init]="{plugins: 'link'}"></editor>
- <br>
- <button  class="btn btn-danger btn-sm btn-space float-right" (click)="save()">Cancel</button>
-
- <button  class="btn btn-success btn-sm btn-space float-right" (click)="save()">Submit</button>
-</div>
-
-<div>
-  <textarea (keyup)="onKey($event)"></textarea>
-
-<p>The value of the textarea field is:</p>
-<h1>{{values}}</h1>
-</div>
-
+<p>{{lastUpdateDateTime}}</p>
 <h1>Text Area</h1>
-<textarea ref-textarea [(ngModel)]="textValue" rows="12" cols="30"></textarea><br/>
+<textarea [(ngModel)]="textValue" rows="12" cols="30"></textarea><br/>
 <button (click)="logText(textarea.value)">Update Log</button>
 <button (click)="textValue=''">Clear</button>
 

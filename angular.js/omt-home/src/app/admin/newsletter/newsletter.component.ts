@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-newsletter',
   templateUrl: './newsletter.component.html',
@@ -7,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class NewsletterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  private showHide: boolean;
+  constructor(private router: Router, private http: HttpClient) {
+    this.showHide = false;
+   }
 
   messages: string[] = [
     'Hello, this is Sridhar',
@@ -26,5 +30,11 @@ export class NewsletterComponent implements OnInit {
   logText(value: string): void {
     this.preview = `${value}`;
   }
+
+  changeShowStatus(element) {
+    this.showHide = !this.showHide;
+    element.disabled = true; 
+  }
+
 
 }

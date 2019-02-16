@@ -1,7 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { UserRole } from '../user-role';
+import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import {formatDate } from '@angular/common';
+import { environment } from '../../environments/environment';
 
+
+
+@NgModule({
+  declarations: [
+    AdminComponent
+  ],
+  imports: [
+    FormsModule
+  ],
+  providers: [CookieService ]
+})
 
 @Component({
   selector: 'app-admin',
@@ -13,6 +29,7 @@ export class AdminComponent implements OnInit {
   private userRole : UserRole;
   private myTextarea : String = '';
   private textValue : String = '';
+  title = 'Admin';
 
    clickMessage = '';
    array = [
@@ -33,25 +50,34 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  values = '';
- 
-
-  showHide: boolean;
-  constructor(private http: HttpClient) {
+  private values: String = '';
+  private showHide: boolean;
+  private cookieValue: string;
+  private today = new Date();
+  private lastUpdateDateTime : String  = '';
+  
+  constructor(private http: HttpClient, private cookieService: CookieService) {
     this.showHide = false;
    }
 
   ngOnInit() {
-
+    
+    this.cookieService.set( 'lastupdateby', 'siyer13' ); 
+    this.cookieValue = this.cookieService.get('lastupdateby'); 
+    this.lastUpdateDateTime = formatDate(this.today, 'MM-dd-yyyy hh:mm:ss a', 'en-US', '+0530');
+    console.log(this.lastUpdateDateTime)
+    
     this.userRole = new UserRole('a160097',true, true);
     console.log(this.userRole);
+    console.log(this.cookieValue);
     console.log('This should get printed');
-     this.http.get('http://localhost:1337/localhost:8080/news/getnews').subscribe(data =>  {
+     this.http.get(environment.apiUrl+'/news/getnews').subscribe(data =>  {
        console.log(data);
        console.log(data[0]);
        console.log(data[0]['id']);
        console.log(data[0]['description']);
-        this.textValue = data[0]['description'];
+      this.lastUpdateDateTime = formatDate(this.today, 'MM-dd-yyyy hh:mm:ss a', 'en-US', '+0530');
+        this.textValue = this.lastUpdateDateTime + '\n\n' + data[0]['description'];
     });
   }
 
@@ -75,7 +101,8 @@ public onKey(event: KeyboardEvent) { // with type info
   log = '';
 
   logText(value: string): void {
-    this.http.put('http://localhost:1337/localhost:8080/news/update?newsDescription='+value,value).subscribe();
+    this.http.put(environment.apiUrl+'/news/update?newsDescription='+value,value).subscribe()
+    ;
     this.log += value;
   }
 }
